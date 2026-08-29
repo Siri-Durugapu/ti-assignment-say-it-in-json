@@ -1,0 +1,492 @@
+{
+  "keys": {
+    "toolchain.node.version": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "NODE_VERSION",
+            "default": {
+              "type": "literal",
+              "text": "20"
+            }
+          }
+        }
+      ]
+    },
+    "toolchain.node.binary": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "node"
+          }
+        }
+      ]
+    },
+    "toolchain.node.package_manager": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "PKG_MGR",
+            "default": {
+              "type": "literal",
+              "text": "npm"
+            }
+          }
+        }
+      ]
+    },
+    "toolchain.node.install_cmd": {
+      "layers": [
+        {
+          "value": {
+            "type": "concat",
+            "parts": [
+              {
+                "type": "env",
+                "var": "PKG_MGR",
+                "default": {
+                  "type": "literal",
+                  "text": "npm"
+                }
+              },
+              {
+                "type": "literal",
+                "text": " ci"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "toolchain.go.version": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "GO_VERSION",
+            "default": {
+              "type": "literal",
+              "text": "1.22"
+            }
+          }
+        }
+      ]
+    },
+    "toolchain.go.module_mode": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "on"
+          }
+        }
+      ]
+    },
+    "toolchain.rust.version": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "RUST_VERSION",
+            "default": {
+              "type": "literal",
+              "text": "stable"
+            }
+          }
+        }
+      ]
+    },
+    "toolchain.rust.target": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "RUST_TARGET",
+            "default": {
+              "type": "literal",
+              "text": "x86_64-unknown-linux-gnu"
+            }
+          }
+        }
+      ]
+    },
+    "toolchain.default.name": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "node"
+          }
+        }
+      ]
+    },
+    "toolchain.default.compiler": {
+      "layers": [
+        {
+          "value": {
+            "type": "ref",
+            "path": "toolchain.node.binary"
+          }
+        }
+      ]
+    },
+    "notify.on_success": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "NOTIFY_SUCCESS",
+            "default": {
+              "type": "literal",
+              "text": "log"
+            }
+          }
+        }
+      ]
+    },
+    "notify.on_failure": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "NOTIFY_FAILURE",
+            "default": {
+              "type": "literal",
+              "text": "email"
+            }
+          }
+        }
+      ]
+    },
+    "notify.email.recipients": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "BUILD_NOTIFY_LIST",
+            "default": {
+              "type": "literal",
+              "text": "ops@example.invalid"
+            }
+          }
+        }
+      ]
+    },
+    "notify.email.from": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "pipelineforge-noreply@example.invalid"
+          }
+        }
+      ]
+    },
+    "notify.slack.enabled": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "true"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "SLACK_WEBHOOK"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "false"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "SLACK_WEBHOOK"
+            }
+          ]
+        }
+      ]
+    },
+    "notify.slack.channel": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "SLACK_CHANNEL",
+            "default": {
+              "type": "literal",
+              "text": "#builds"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "SLACK_WEBHOOK"
+            }
+          ]
+        }
+      ]
+    },
+    "meta.format_version": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "3"
+          }
+        }
+      ]
+    },
+    "meta.platform": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "pipelineforge"
+          }
+        }
+      ]
+    },
+    "build.timeout_minutes": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "45"
+          }
+        }
+      ]
+    },
+    "build.retry_count": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "1"
+          }
+        }
+      ]
+    },
+    "build.image": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "PF_BUILD_IMAGE",
+            "default": {
+              "type": "literal",
+              "text": "pfci/builder:22.04"
+            }
+          }
+        }
+      ]
+    },
+    "build.parallel": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "false"
+          }
+        }
+      ]
+    },
+    "cache.enabled": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "true"
+          }
+        }
+      ]
+    },
+    "cache.key_prefix": {
+      "layers": [
+        {
+          "value": {
+            "type": "concat",
+            "parts": [
+              {
+                "type": "env",
+                "var": "CI",
+                "alt": {
+                  "type": "literal",
+                  "text": "ci-"
+                }
+              },
+              {
+                "type": "env",
+                "var": "CACHE_NAMESPACE",
+                "default": {
+                  "type": "literal",
+                  "text": "default"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "artifacts.retention_days": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "14"
+          }
+        }
+      ]
+    },
+    "artifacts.compress": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "true"
+          }
+        }
+      ]
+    },
+    "cascade.alpha": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "CASCADE_ALPHA",
+            "default": {
+              "type": "literal",
+              "text": "unset"
+            }
+          }
+        }
+      ]
+    },
+    "cascade.beta": {
+      "layers": [
+        {
+          "value": {
+            "type": "concat",
+            "parts": [
+              {
+                "type": "literal",
+                "text": "prefix-"
+              },
+              {
+                "type": "ref",
+                "path": "cascade.alpha"
+              },
+              {
+                "type": "literal",
+                "text": "-suffix"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "cascade.gamma": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "CASCADE_GAMMA",
+            "default": {
+              "type": "ref",
+              "path": "cascade.beta"
+            }
+          }
+        }
+      ]
+    },
+    "cascade.delta": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "CASCADE_DELTA",
+            "default": {
+              "type": "concat",
+              "parts": [
+                {
+                  "type": "ref",
+                  "path": "cascade.gamma"
+                },
+                {
+                  "type": "literal",
+                  "text": "-final"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "cascade.epsilon": {
+      "layers": [
+        {
+          "value": {
+            "type": "concat",
+            "parts": [
+              {
+                "type": "literal",
+                "text": "local-"
+              },
+              {
+                "type": "ref",
+                "path": "cascade.delta"
+              }
+            ]
+          }
+        },
+        {
+          "value": {
+            "type": "concat",
+            "parts": [
+              {
+                "type": "literal",
+                "text": "ci-"
+              },
+              {
+                "type": "ref",
+                "path": "cascade.delta"
+              }
+            ]
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "CI"
+            }
+          ]
+        }
+      ]
+    },
+    "cascade.loop.a": {
+      "layers": [
+        {
+          "value": {
+            "type": "ref",
+            "path": "cascade.loop.b"
+          }
+        }
+      ]
+    },
+    "cascade.loop.b": {
+      "layers": [
+        {
+          "value": {
+            "type": "ref",
+            "path": "cascade.loop.a"
+          }
+        }
+      ]
+    }
+  }
+}

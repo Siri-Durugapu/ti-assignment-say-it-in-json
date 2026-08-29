@@ -1,0 +1,414 @@
+{
+  "toolchain.node.version": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 4,
+      "section": "toolchain.node",
+      "key": "version"
+    }
+  ],
+  "toolchain.node.binary": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 5,
+      "section": "toolchain.node",
+      "key": "binary"
+    }
+  ],
+  "toolchain.node.package_manager": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 6,
+      "section": "toolchain.node",
+      "key": "package_manager"
+    }
+  ],
+  "toolchain.node.install_cmd": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 7,
+      "section": "toolchain.node",
+      "key": "install_cmd"
+    }
+  ],
+  "toolchain.go.version": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 10,
+      "section": "toolchain.go",
+      "key": "version"
+    }
+  ],
+  "toolchain.go.module_mode": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 11,
+      "section": "toolchain.go",
+      "key": "module_mode"
+    }
+  ],
+  "toolchain.rust.version": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 14,
+      "section": "toolchain.rust",
+      "key": "version"
+    }
+  ],
+  "toolchain.rust.target": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 15,
+      "section": "toolchain.rust",
+      "key": "target"
+    }
+  ],
+  "toolchain.default.name": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 18,
+      "section": "toolchain.default",
+      "key": "name"
+    }
+  ],
+  "toolchain.default.compiler": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 19,
+      "section": "toolchain.default",
+      "key": "compiler"
+    }
+  ],
+  "notify.on_success": [
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 4,
+      "section": "notify",
+      "key": "on_success"
+    }
+  ],
+  "notify.on_failure": [
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 5,
+      "section": "notify",
+      "key": "on_failure"
+    }
+  ],
+  "notify.email.recipients": [
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 8,
+      "section": "notify.email",
+      "key": "recipients"
+    }
+  ],
+  "notify.email.from": [
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 9,
+      "section": "notify.email",
+      "key": "from"
+    }
+  ],
+  "notify.slack.enabled": [
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 13,
+      "section": "notify.slack",
+      "key": "enabled"
+    },
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 19,
+      "section": "notify.slack",
+      "key": "enabled"
+    }
+  ],
+  "notify.slack.channel": [
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 14,
+      "section": "notify.slack",
+      "key": "channel"
+    }
+  ],
+  "meta.format_version": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 6,
+      "section": "meta",
+      "key": "format_version"
+    }
+  ],
+  "meta.platform": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 7,
+      "section": "meta",
+      "key": "platform"
+    }
+  ],
+  "build.timeout_minutes": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 10,
+      "section": "build",
+      "key": "timeout_minutes"
+    }
+  ],
+  "build.retry_count": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 11,
+      "section": "build",
+      "key": "retry_count"
+    }
+  ],
+  "build.image": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 12,
+      "section": "build",
+      "key": "image"
+    }
+  ],
+  "build.parallel": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 13,
+      "section": "build",
+      "key": "parallel"
+    }
+  ],
+  "cache.enabled": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 16,
+      "section": "cache",
+      "key": "enabled"
+    }
+  ],
+  "cache.key_prefix": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 17,
+      "section": "cache",
+      "key": "key_prefix"
+    }
+  ],
+  "artifacts.retention_days": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 20,
+      "section": "artifacts",
+      "key": "retention_days"
+    }
+  ],
+  "artifacts.compress": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 21,
+      "section": "artifacts",
+      "key": "compress"
+    }
+  ],
+  "template.name": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 6,
+      "section": "template",
+      "key": "name"
+    }
+  ],
+  "template.language": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 7,
+      "section": "template",
+      "key": "language"
+    }
+  ],
+  "build.steps": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 10,
+      "section": "build",
+      "key": "steps"
+    }
+  ],
+  "build.install_cmd": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 11,
+      "section": "build",
+      "key": "install_cmd"
+    }
+  ],
+  "build.node_version": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 12,
+      "section": "build",
+      "key": "node_version"
+    }
+  ],
+  "build.env.NODE_ENV": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 15,
+      "section": "build.env",
+      "key": "NODE_ENV"
+    }
+  ],
+  "build.env.CI": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 16,
+      "section": "build.env",
+      "key": "CI"
+    }
+  ],
+  "test.runner": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 19,
+      "section": "test",
+      "key": "runner"
+    }
+  ],
+  "test.coverage_threshold": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 20,
+      "section": "test",
+      "key": "coverage_threshold"
+    }
+  ],
+  "lint.tool": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 23,
+      "section": "lint",
+      "key": "tool"
+    }
+  ],
+  "lint.fail_on_warning": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 24,
+      "section": "lint",
+      "key": "fail_on_warning"
+    }
+  ],
+  "secrets.provider": [
+    {
+      "file": "customers\\initech\\secrets.pfcfg",
+      "line": 5,
+      "section": "secrets",
+      "key": "provider"
+    },
+    {
+      "file": "customers\\initech\\secrets.pfcfg",
+      "line": 11,
+      "section": "secrets",
+      "key": "provider"
+    }
+  ],
+  "secrets.path": [
+    {
+      "file": "customers\\initech\\secrets.pfcfg",
+      "line": 6,
+      "section": "secrets",
+      "key": "path"
+    }
+  ],
+  "secrets.prefix": [
+    {
+      "file": "customers\\initech\\secrets.pfcfg",
+      "line": 12,
+      "section": "secrets",
+      "key": "prefix"
+    }
+  ],
+  "signing.key_material": [
+    {
+      "file": "customers\\initech\\secrets.pfcfg",
+      "line": 17,
+      "section": "signing",
+      "key": "key_material"
+    }
+  ],
+  "customer.id": [
+    {
+      "file": "customers\\initech\\pipeline.pfcfg",
+      "line": 7,
+      "section": "customer",
+      "key": "id"
+    }
+  ],
+  "customer.tier": [
+    {
+      "file": "customers\\initech\\pipeline.pfcfg",
+      "line": 8,
+      "section": "customer",
+      "key": "tier"
+    }
+  ],
+  "build.compiler_path": [
+    {
+      "file": "customers\\initech\\pipeline.pfcfg",
+      "line": 11,
+      "section": "build",
+      "key": "compiler_path"
+    }
+  ],
+  "build.effective_toolchain": [
+    {
+      "file": "customers\\initech\\pipeline.pfcfg",
+      "line": 12,
+      "section": "build",
+      "key": "effective_toolchain"
+    }
+  ],
+  "signing.key_id": [
+    {
+      "file": "customers\\initech\\pipeline.pfcfg",
+      "line": 15,
+      "section": "signing",
+      "key": "key_id"
+    }
+  ],
+  "signing.algorithm": [
+    {
+      "file": "customers\\initech\\pipeline.pfcfg",
+      "line": 16,
+      "section": "signing",
+      "key": "algorithm"
+    }
+  ],
+  "signing.public_key_url": [
+    {
+      "file": "customers\\initech\\pipeline.pfcfg",
+      "line": 17,
+      "section": "signing",
+      "key": "public_key_url"
+    }
+  ],
+  "release.version": [
+    {
+      "file": "customers\\initech\\pipeline.pfcfg",
+      "line": 20,
+      "section": "release",
+      "key": "version"
+    }
+  ],
+  "release.bundle_name": [
+    {
+      "file": "customers\\initech\\pipeline.pfcfg",
+      "line": 21,
+      "section": "release",
+      "key": "bundle_name"
+    }
+  ]
+}

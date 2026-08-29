@@ -1,0 +1,26 @@
+[
+  {
+    "file": "edge-cases\\interpolation-cascade.pfcfg",
+    "section": "cascade.loop",
+    "key": "a",
+    "reason": "Unresolved $(cascade.loop.b) \u2014 circular reference: cascade.loop.a \u2192 cascade.loop.b \u2192 cascade.loop.a",
+    "line": 19,
+    "phase": "evaluation",
+    "environments": [
+      "ci-production",
+      "non-ci"
+    ]
+  },
+  {
+    "file": "edge-cases\\interpolation-cascade.pfcfg",
+    "section": "cascade.loop",
+    "key": "b",
+    "reason": "Unresolved $(cascade.loop.a) \u2014 circular reference: cascade.loop.b \u2192 cascade.loop.a \u2192 cascade.loop.b",
+    "line": 20,
+    "phase": "evaluation",
+    "environments": [
+      "ci-production",
+      "non-ci"
+    ]
+  }
+]

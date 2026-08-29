@@ -1,0 +1,704 @@
+{
+  "keys": {
+    "toolchain.node.version": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "NODE_VERSION",
+            "default": {
+              "type": "literal",
+              "text": "20"
+            }
+          }
+        }
+      ]
+    },
+    "toolchain.node.binary": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "node"
+          }
+        }
+      ]
+    },
+    "toolchain.node.package_manager": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "PKG_MGR",
+            "default": {
+              "type": "literal",
+              "text": "npm"
+            }
+          }
+        }
+      ]
+    },
+    "toolchain.node.install_cmd": {
+      "layers": [
+        {
+          "value": {
+            "type": "concat",
+            "parts": [
+              {
+                "type": "env",
+                "var": "PKG_MGR",
+                "default": {
+                  "type": "literal",
+                  "text": "npm"
+                }
+              },
+              {
+                "type": "literal",
+                "text": " ci"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "toolchain.go.version": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "GO_VERSION",
+            "default": {
+              "type": "literal",
+              "text": "1.22"
+            }
+          }
+        }
+      ]
+    },
+    "toolchain.go.module_mode": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "on"
+          }
+        }
+      ]
+    },
+    "toolchain.rust.version": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "RUST_VERSION",
+            "default": {
+              "type": "literal",
+              "text": "stable"
+            }
+          }
+        }
+      ]
+    },
+    "toolchain.rust.target": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "RUST_TARGET",
+            "default": {
+              "type": "literal",
+              "text": "x86_64-unknown-linux-gnu"
+            }
+          }
+        }
+      ]
+    },
+    "toolchain.default.name": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "node"
+          }
+        }
+      ]
+    },
+    "toolchain.default.compiler": {
+      "layers": [
+        {
+          "value": {
+            "type": "ref",
+            "path": "toolchain.node.binary"
+          }
+        }
+      ]
+    },
+    "notify.on_success": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "NOTIFY_SUCCESS",
+            "default": {
+              "type": "literal",
+              "text": "log"
+            }
+          }
+        }
+      ]
+    },
+    "notify.on_failure": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "NOTIFY_FAILURE",
+            "default": {
+              "type": "literal",
+              "text": "email"
+            }
+          }
+        }
+      ]
+    },
+    "notify.email.recipients": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "BUILD_NOTIFY_LIST",
+            "default": {
+              "type": "literal",
+              "text": "ops@example.invalid"
+            }
+          }
+        }
+      ]
+    },
+    "notify.email.from": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "pipelineforge-noreply@example.invalid"
+          }
+        }
+      ]
+    },
+    "notify.slack.enabled": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "true"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "SLACK_WEBHOOK"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "false"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "SLACK_WEBHOOK"
+            }
+          ]
+        }
+      ]
+    },
+    "notify.slack.channel": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "SLACK_CHANNEL",
+            "default": {
+              "type": "literal",
+              "text": "#builds"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "SLACK_WEBHOOK"
+            }
+          ]
+        }
+      ]
+    },
+    "meta.format_version": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "3"
+          }
+        }
+      ]
+    },
+    "meta.platform": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "pipelineforge"
+          }
+        }
+      ]
+    },
+    "build.timeout_minutes": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "45"
+          }
+        }
+      ]
+    },
+    "build.retry_count": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "1"
+          }
+        }
+      ]
+    },
+    "build.image": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "PF_BUILD_IMAGE",
+            "default": {
+              "type": "literal",
+              "text": "pfci/builder:22.04"
+            }
+          }
+        }
+      ]
+    },
+    "build.parallel": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "false"
+          }
+        }
+      ]
+    },
+    "cache.enabled": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "true"
+          }
+        }
+      ]
+    },
+    "cache.key_prefix": {
+      "layers": [
+        {
+          "value": {
+            "type": "concat",
+            "parts": [
+              {
+                "type": "env",
+                "var": "CI",
+                "alt": {
+                  "type": "literal",
+                  "text": "ci-"
+                }
+              },
+              {
+                "type": "env",
+                "var": "CACHE_NAMESPACE",
+                "default": {
+                  "type": "literal",
+                  "text": "default"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "artifacts.retention_days": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "14"
+          }
+        }
+      ]
+    },
+    "artifacts.compress": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "true"
+          }
+        }
+      ]
+    },
+    "template.name": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "node-build"
+          }
+        }
+      ]
+    },
+    "template.language": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "node"
+          }
+        }
+      ]
+    },
+    "build.steps": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "install,lint,test,build"
+          }
+        }
+      ]
+    },
+    "build.install_cmd": {
+      "layers": [
+        {
+          "value": {
+            "type": "ref",
+            "path": "toolchain.node.install_cmd"
+          }
+        }
+      ]
+    },
+    "build.node_version": {
+      "layers": [
+        {
+          "value": {
+            "type": "ref",
+            "path": "toolchain.node.version"
+          }
+        }
+      ]
+    },
+    "build.env.NODE_ENV": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "NODE_ENV",
+            "default": {
+              "type": "literal",
+              "text": "test"
+            }
+          }
+        }
+      ]
+    },
+    "build.env.CI": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "CI",
+            "default": {
+              "type": "literal",
+              "text": "false"
+            }
+          }
+        }
+      ]
+    },
+    "test.runner": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "TEST_RUNNER",
+            "default": {
+              "type": "literal",
+              "text": "jest"
+            }
+          }
+        }
+      ]
+    },
+    "test.coverage_threshold": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "COVERAGE_MIN",
+            "default": {
+              "type": "literal",
+              "text": "80"
+            }
+          }
+        }
+      ]
+    },
+    "lint.tool": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "eslint"
+          }
+        }
+      ]
+    },
+    "lint.fail_on_warning": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "LINT_STRICT",
+            "default": {
+              "type": "literal",
+              "text": "false"
+            }
+          }
+        }
+      ]
+    },
+    "secrets.provider": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "vault"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "VAULT_ADDR"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "env"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "VAULT_ADDR"
+            }
+          ]
+        }
+      ]
+    },
+    "secrets.path": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "VAULT_SECRET_PATH",
+            "default": {
+              "type": "literal",
+              "text": "initech/ci"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "VAULT_ADDR"
+            }
+          ]
+        }
+      ]
+    },
+    "secrets.prefix": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "INITECH_"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "VAULT_ADDR"
+            }
+          ]
+        }
+      ]
+    },
+    "signing.key_material": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "REQUIRED_SIGNING_SECRET"
+          }
+        }
+      ]
+    },
+    "customer.id": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "initech"
+          }
+        }
+      ]
+    },
+    "customer.tier": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "enterprise"
+          }
+        }
+      ]
+    },
+    "build.compiler_path": {
+      "layers": [
+        {
+          "value": {
+            "type": "concat",
+            "parts": [
+              {
+                "type": "literal",
+                "text": "/usr/local/bin/"
+              },
+              {
+                "type": "ref",
+                "path": "toolchain.default.compiler"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "build.effective_toolchain": {
+      "layers": [
+        {
+          "value": {
+            "type": "ref",
+            "path": "toolchain.default.name"
+          }
+        }
+      ]
+    },
+    "signing.key_id": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "SIGNING_KEY_ID",
+            "default": {
+              "type": "literal",
+              "text": "initech-default"
+            }
+          }
+        }
+      ]
+    },
+    "signing.algorithm": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "SIGNING_ALG",
+            "default": {
+              "type": "literal",
+              "text": "ed25519"
+            }
+          }
+        }
+      ]
+    },
+    "signing.public_key_url": {
+      "layers": [
+        {
+          "value": {
+            "type": "concat",
+            "parts": [
+              {
+                "type": "ref",
+                "path": "signing.key_id"
+              },
+              {
+                "type": "literal",
+                "text": ".keys.example.invalid"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "release.version": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "RELEASE_VERSION",
+            "default": {
+              "type": "concat",
+              "parts": [
+                {
+                  "type": "literal",
+                  "text": "0.0.0-"
+                },
+                {
+                  "type": "ref",
+                  "path": "build.node_version"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "release.bundle_name": {
+      "layers": [
+        {
+          "value": {
+            "type": "concat",
+            "parts": [
+              {
+                "type": "literal",
+                "text": "initech-"
+              },
+              {
+                "type": "ref",
+                "path": "release.version"
+              },
+              {
+                "type": "literal",
+                "text": ".tar.gz"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

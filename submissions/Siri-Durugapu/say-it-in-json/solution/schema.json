@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/pfcfg-json-schema.json",
+  "title": "PipelineForge Config — JSON target schema",
+  "type": "object",
+  "required": ["keys"],
+  "additionalProperties": false,
+  "properties": {
+    "keys": {
+      "type": "object",
+      "description": "Flat map keyed by the full dotted section.key string, byte-for-byte identical to how a $(section.key) reference names it. No nested tree — see DECISIONS.md for the [cascade]/[cascade.loop] sibling-section collision that rules a nested tree out.",
+      "additionalProperties": { "$ref": "#/$defs/keyDef" }
+    }
+  },
+  "$defs": {
+    "keyDef": {
+      "type": "object",
+      "required": ["layers"],
+      "additionalProperties": false,
+      "properties": {
+        "layers": {
+          "type": "array",
+          "description": "Ordered, depth-first-flattened assignments to this key. Must be an array (not a map) because last-write-wins is order-dependent and JSON object key order is not part of the JSON spec.",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/layer" }
+        }
+      }
+    },
+    "layer": {
+      "type": "object",
+      "required": ["value"],
+      "additionalProperties": false,
+      "properties": {
+        "condition": { "$ref": "#/$defs/condition" },
+        "value": { "$ref": "#/$defs/node" }
+      }
+    },
+    "condition": {
+      "type": "array",
+      "description": "Flat, ANDed array of predicates. Nesting depth is array length; no wrapper key.",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/conditionTerm" }
+    },
+    "conditionTerm": {
+      "type": "object",
+      "required": ["type", "var"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "enum": ["ifdef", "ifndef"] },
+        "var": { "type": "string", "minLength": 1 }
+      }
+    },
+    "node": {
+      "description": "A value is a single recursive node: literal | env | ref | concat. Dispatch on 'type'.",
+      "oneOf": [
+        { "$ref": "#/$defs/literalNode" },
+        { "$ref": "#/$defs/envNode" },
+        { "$ref": "#/$defs/refNode" },
+        { "$ref": "#/$defs/concatNode" }
+      ]
+    },
+    "literalNode": {
+      "type": "object",
+      "required": ["type", "text"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "literal" },
+        "text": {
+          "type": "string",
+          "description": ".pfcfg has no type system beyond text; a literal is always the raw string as written (post quote-unescaping), never coerced to bool/number."
+        }
+      }
+    },
+    "envNode": {
+      "type": "object",
+      "required": ["type", "var"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "env" },
+        "var": { "type": "string", "minLength": 1 },
+        "default": { "$ref": "#/$defs/node" },
+        "alt": { "$ref": "#/$defs/node" }
+      },
+      "not": {
+        "required": ["default", "alt"]
+      },
+      "description": "default = ${VAR:-default}; alt = ${VAR:+alternate}; neither = bare ${VAR}. Mutually exclusive because a single ${...} token is one legacy form or the other, never both."
+    },
+    "refNode": {
+      "type": "object",
+      "required": ["type", "path"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "ref" },
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Copied byte-for-byte from the $(...) text. Referential integrity (does this key exist) is deliberately NOT enforced here — that's a runtime resolution concern for the evaluator, not a shape property."
+        }
+      }
+    },
+    "concatNode": {
+      "type": "object",
+      "required": ["type", "parts"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "concat" },
+        "parts": {
+          "type": "array",
+          "minItems": 2,
+          "description": "A single part is never wrapped in concat; it's just that node directly. Enforced here so a converter bug can't silently emit a 1-item concat.",
+          "items": { "$ref": "#/$defs/node" }
+        }
+      }
+    }
+  }
+}

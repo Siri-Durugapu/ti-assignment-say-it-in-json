@@ -1,0 +1,699 @@
+{
+  "keys": {
+    "toolchain.node.version": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "NODE_VERSION",
+            "default": {
+              "type": "literal",
+              "text": "20"
+            }
+          }
+        }
+      ]
+    },
+    "toolchain.node.binary": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "node"
+          }
+        }
+      ]
+    },
+    "toolchain.node.package_manager": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "PKG_MGR",
+            "default": {
+              "type": "literal",
+              "text": "npm"
+            }
+          }
+        }
+      ]
+    },
+    "toolchain.node.install_cmd": {
+      "layers": [
+        {
+          "value": {
+            "type": "concat",
+            "parts": [
+              {
+                "type": "env",
+                "var": "PKG_MGR",
+                "default": {
+                  "type": "literal",
+                  "text": "npm"
+                }
+              },
+              {
+                "type": "literal",
+                "text": " ci"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "toolchain.go.version": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "GO_VERSION",
+            "default": {
+              "type": "literal",
+              "text": "1.22"
+            }
+          }
+        }
+      ]
+    },
+    "toolchain.go.module_mode": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "on"
+          }
+        }
+      ]
+    },
+    "toolchain.rust.version": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "RUST_VERSION",
+            "default": {
+              "type": "literal",
+              "text": "stable"
+            }
+          }
+        }
+      ]
+    },
+    "toolchain.rust.target": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "RUST_TARGET",
+            "default": {
+              "type": "literal",
+              "text": "x86_64-unknown-linux-gnu"
+            }
+          }
+        }
+      ]
+    },
+    "toolchain.default.name": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "node"
+          }
+        }
+      ]
+    },
+    "toolchain.default.compiler": {
+      "layers": [
+        {
+          "value": {
+            "type": "ref",
+            "path": "toolchain.node.binary"
+          }
+        }
+      ]
+    },
+    "notify.on_success": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "NOTIFY_SUCCESS",
+            "default": {
+              "type": "literal",
+              "text": "log"
+            }
+          }
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "email"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "PRODUCTION"
+            }
+          ]
+        }
+      ]
+    },
+    "notify.on_failure": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "NOTIFY_FAILURE",
+            "default": {
+              "type": "literal",
+              "text": "email"
+            }
+          }
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "email,slack"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "CI"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "email,pager"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "PRODUCTION"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "log"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "PRODUCTION"
+            }
+          ]
+        }
+      ]
+    },
+    "notify.email.recipients": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "BUILD_NOTIFY_LIST",
+            "default": {
+              "type": "literal",
+              "text": "ops@example.invalid"
+            }
+          }
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "sre@globex.example.invalid,release@globex.example.invalid"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "PRODUCTION"
+            }
+          ]
+        }
+      ]
+    },
+    "notify.email.from": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "pipelineforge-noreply@example.invalid"
+          }
+        }
+      ]
+    },
+    "notify.slack.enabled": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "true"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "SLACK_WEBHOOK"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "false"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "SLACK_WEBHOOK"
+            }
+          ]
+        }
+      ]
+    },
+    "notify.slack.channel": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "SLACK_CHANNEL",
+            "default": {
+              "type": "literal",
+              "text": "#builds"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "SLACK_WEBHOOK"
+            }
+          ]
+        }
+      ]
+    },
+    "meta.format_version": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "3"
+          }
+        }
+      ]
+    },
+    "meta.platform": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "pipelineforge"
+          }
+        }
+      ]
+    },
+    "build.timeout_minutes": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "45"
+          }
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "30"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "PRODUCTION"
+            }
+          ]
+        }
+      ]
+    },
+    "build.retry_count": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "1"
+          }
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "0"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "CI"
+            }
+          ]
+        }
+      ]
+    },
+    "build.image": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "PF_BUILD_IMAGE",
+            "default": {
+              "type": "literal",
+              "text": "pfci/builder:22.04"
+            }
+          }
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "pfci/builder:enterprise-rhel8"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "PRODUCTION"
+            }
+          ]
+        }
+      ]
+    },
+    "build.parallel": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "false"
+          }
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "true"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "CI"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "true"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "PRODUCTION"
+            }
+          ]
+        }
+      ]
+    },
+    "cache.enabled": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "true"
+          }
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "false"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "PRODUCTION"
+            }
+          ]
+        }
+      ]
+    },
+    "cache.key_prefix": {
+      "layers": [
+        {
+          "value": {
+            "type": "concat",
+            "parts": [
+              {
+                "type": "env",
+                "var": "CI",
+                "alt": {
+                  "type": "literal",
+                  "text": "ci-"
+                }
+              },
+              {
+                "type": "env",
+                "var": "CACHE_NAMESPACE",
+                "default": {
+                  "type": "literal",
+                  "text": "default"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "value": {
+            "type": "concat",
+            "parts": [
+              {
+                "type": "literal",
+                "text": "ci-"
+              },
+              {
+                "type": "env",
+                "var": "CACHE_NAMESPACE",
+                "default": {
+                  "type": "literal",
+                  "text": "shared"
+                }
+              }
+            ]
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "CI"
+            }
+          ]
+        }
+      ]
+    },
+    "artifacts.retention_days": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "14"
+          }
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "7"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "CI"
+            }
+          ]
+        }
+      ]
+    },
+    "artifacts.compress": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "true"
+          }
+        }
+      ]
+    },
+    "deploy.strategy": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "manual"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "PRODUCTION"
+            }
+          ]
+        }
+      ]
+    },
+    "deploy.requires_approval": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "true"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "PRODUCTION"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "false"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "PRODUCTION"
+            }
+          ]
+        }
+      ]
+    },
+    "deploy.target": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "on-prem"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "PRODUCTION"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "env",
+            "var": "GLOBEX_ENV",
+            "default": {
+              "type": "literal",
+              "text": "development"
+            }
+          }
+        }
+      ]
+    },
+    "container.registry": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "registry.globex.internal"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "PRODUCTION"
+            }
+          ]
+        }
+      ]
+    },
+    "container.push": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "false"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "PRODUCTION"
+            }
+          ]
+        }
+      ]
+    },
+    "customer.id": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "globex"
+          }
+        }
+      ]
+    },
+    "customer.tier": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "standard"
+          }
+        }
+      ]
+    },
+    "build.steps": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "compile,test,package"
+          }
+        }
+      ]
+    },
+    "build.language": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "go"
+          }
+        }
+      ]
+    },
+    "build.go_version": {
+      "layers": [
+        {
+          "value": {
+            "type": "ref",
+            "path": "toolchain.go.version"
+          }
+        }
+      ]
+    },
+    "package.format": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "tar.gz"
+          }
+        }
+      ]
+    },
+    "package.output_dir": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "dist/"
+          }
+        }
+      ]
+    }
+  }
+}

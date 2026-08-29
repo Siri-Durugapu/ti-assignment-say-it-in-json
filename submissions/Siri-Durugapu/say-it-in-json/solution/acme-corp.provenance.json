@@ -1,0 +1,508 @@
+{
+  "toolchain.node.version": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 4,
+      "section": "toolchain.node",
+      "key": "version"
+    }
+  ],
+  "toolchain.node.binary": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 5,
+      "section": "toolchain.node",
+      "key": "binary"
+    }
+  ],
+  "toolchain.node.package_manager": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 6,
+      "section": "toolchain.node",
+      "key": "package_manager"
+    }
+  ],
+  "toolchain.node.install_cmd": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 7,
+      "section": "toolchain.node",
+      "key": "install_cmd"
+    }
+  ],
+  "toolchain.go.version": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 10,
+      "section": "toolchain.go",
+      "key": "version"
+    }
+  ],
+  "toolchain.go.module_mode": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 11,
+      "section": "toolchain.go",
+      "key": "module_mode"
+    }
+  ],
+  "toolchain.rust.version": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 14,
+      "section": "toolchain.rust",
+      "key": "version"
+    }
+  ],
+  "toolchain.rust.target": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 15,
+      "section": "toolchain.rust",
+      "key": "target"
+    }
+  ],
+  "toolchain.default.name": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 18,
+      "section": "toolchain.default",
+      "key": "name"
+    }
+  ],
+  "toolchain.default.compiler": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 19,
+      "section": "toolchain.default",
+      "key": "compiler"
+    }
+  ],
+  "notify.on_success": [
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 4,
+      "section": "notify",
+      "key": "on_success"
+    },
+    {
+      "file": "customers\\acme-corp\\staging.pfcfg",
+      "line": 12,
+      "section": "notify",
+      "key": "on_success"
+    }
+  ],
+  "notify.on_failure": [
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 5,
+      "section": "notify",
+      "key": "on_failure"
+    },
+    {
+      "file": "customers\\acme-corp\\staging.pfcfg",
+      "line": 13,
+      "section": "notify",
+      "key": "on_failure"
+    }
+  ],
+  "notify.email.recipients": [
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 8,
+      "section": "notify.email",
+      "key": "recipients"
+    }
+  ],
+  "notify.email.from": [
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 9,
+      "section": "notify.email",
+      "key": "from"
+    }
+  ],
+  "notify.slack.enabled": [
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 13,
+      "section": "notify.slack",
+      "key": "enabled"
+    },
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 19,
+      "section": "notify.slack",
+      "key": "enabled"
+    }
+  ],
+  "notify.slack.channel": [
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 14,
+      "section": "notify.slack",
+      "key": "channel"
+    },
+    {
+      "file": "customers\\acme-corp\\staging.pfcfg",
+      "line": 16,
+      "section": "notify.slack",
+      "key": "channel"
+    }
+  ],
+  "meta.format_version": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 6,
+      "section": "meta",
+      "key": "format_version"
+    }
+  ],
+  "meta.platform": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 7,
+      "section": "meta",
+      "key": "platform"
+    }
+  ],
+  "build.timeout_minutes": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 10,
+      "section": "build",
+      "key": "timeout_minutes"
+    },
+    {
+      "file": "customers\\acme-corp\\pipeline.pfcfg",
+      "line": 11,
+      "section": "build",
+      "key": "timeout_minutes"
+    }
+  ],
+  "build.retry_count": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 11,
+      "section": "build",
+      "key": "retry_count"
+    }
+  ],
+  "build.image": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 12,
+      "section": "build",
+      "key": "image"
+    }
+  ],
+  "build.parallel": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 13,
+      "section": "build",
+      "key": "parallel"
+    },
+    {
+      "file": "customers\\acme-corp\\pipeline.pfcfg",
+      "line": 12,
+      "section": "build",
+      "key": "parallel"
+    }
+  ],
+  "cache.enabled": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 16,
+      "section": "cache",
+      "key": "enabled"
+    }
+  ],
+  "cache.key_prefix": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 17,
+      "section": "cache",
+      "key": "key_prefix"
+    },
+    {
+      "file": "customers\\acme-corp\\staging.pfcfg",
+      "line": 19,
+      "section": "cache",
+      "key": "key_prefix"
+    }
+  ],
+  "artifacts.retention_days": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 20,
+      "section": "artifacts",
+      "key": "retention_days"
+    }
+  ],
+  "artifacts.compress": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 21,
+      "section": "artifacts",
+      "key": "compress"
+    }
+  ],
+  "template.name": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 6,
+      "section": "template",
+      "key": "name"
+    },
+    {
+      "file": "templates\\container-publish.pfcfg",
+      "line": 6,
+      "section": "template",
+      "key": "name"
+    }
+  ],
+  "template.language": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 7,
+      "section": "template",
+      "key": "language"
+    }
+  ],
+  "build.steps": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 10,
+      "section": "build",
+      "key": "steps"
+    }
+  ],
+  "build.install_cmd": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 11,
+      "section": "build",
+      "key": "install_cmd"
+    }
+  ],
+  "build.node_version": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 12,
+      "section": "build",
+      "key": "node_version"
+    }
+  ],
+  "build.env.NODE_ENV": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 15,
+      "section": "build.env",
+      "key": "NODE_ENV"
+    }
+  ],
+  "build.env.CI": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 16,
+      "section": "build.env",
+      "key": "CI"
+    }
+  ],
+  "test.runner": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 19,
+      "section": "test",
+      "key": "runner"
+    }
+  ],
+  "test.coverage_threshold": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 20,
+      "section": "test",
+      "key": "coverage_threshold"
+    }
+  ],
+  "lint.tool": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 23,
+      "section": "lint",
+      "key": "tool"
+    }
+  ],
+  "lint.fail_on_warning": [
+    {
+      "file": "templates\\node-build.pfcfg",
+      "line": 24,
+      "section": "lint",
+      "key": "fail_on_warning"
+    }
+  ],
+  "template.extends": [
+    {
+      "file": "templates\\container-publish.pfcfg",
+      "line": 7,
+      "section": "template",
+      "key": "extends"
+    }
+  ],
+  "container.registry": [
+    {
+      "file": "templates\\container-publish.pfcfg",
+      "line": 10,
+      "section": "container",
+      "key": "registry"
+    }
+  ],
+  "container.repository": [
+    {
+      "file": "templates\\container-publish.pfcfg",
+      "line": 11,
+      "section": "container",
+      "key": "repository"
+    },
+    {
+      "file": "customers\\acme-corp\\pipeline.pfcfg",
+      "line": 15,
+      "section": "container",
+      "key": "repository"
+    }
+  ],
+  "container.tag": [
+    {
+      "file": "templates\\container-publish.pfcfg",
+      "line": 12,
+      "section": "container",
+      "key": "tag"
+    },
+    {
+      "file": "customers\\acme-corp\\pipeline.pfcfg",
+      "line": 16,
+      "section": "container",
+      "key": "tag"
+    }
+  ],
+  "container.dockerfile": [
+    {
+      "file": "templates\\container-publish.pfcfg",
+      "line": 13,
+      "section": "container",
+      "key": "dockerfile"
+    }
+  ],
+  "container.build.context": [
+    {
+      "file": "templates\\container-publish.pfcfg",
+      "line": 16,
+      "section": "container.build",
+      "key": "context"
+    }
+  ],
+  "container.build.platforms": [
+    {
+      "file": "templates\\container-publish.pfcfg",
+      "line": 17,
+      "section": "container.build",
+      "key": "platforms"
+    }
+  ],
+  "container.build.push": [
+    {
+      "file": "templates\\container-publish.pfcfg",
+      "line": 18,
+      "section": "container.build",
+      "key": "push"
+    },
+    {
+      "file": "templates\\container-publish.pfcfg",
+      "line": 22,
+      "section": "container.build",
+      "key": "push"
+    }
+  ],
+  "deploy.strategy": [
+    {
+      "file": "templates\\container-publish.pfcfg",
+      "line": 26,
+      "section": "deploy",
+      "key": "strategy"
+    },
+    {
+      "file": "customers\\acme-corp\\staging.pfcfg",
+      "line": 8,
+      "section": "deploy",
+      "key": "strategy"
+    }
+  ],
+  "deploy.requires_approval": [
+    {
+      "file": "templates\\container-publish.pfcfg",
+      "line": 27,
+      "section": "deploy",
+      "key": "requires_approval"
+    },
+    {
+      "file": "customers\\acme-corp\\pipeline.pfcfg",
+      "line": 20,
+      "section": "deploy",
+      "key": "requires_approval"
+    },
+    {
+      "file": "customers\\acme-corp\\pipeline.pfcfg",
+      "line": 24,
+      "section": "deploy",
+      "key": "requires_approval"
+    }
+  ],
+  "staging.enabled": [
+    {
+      "file": "customers\\acme-corp\\staging.pfcfg",
+      "line": 4,
+      "section": "staging",
+      "key": "enabled"
+    }
+  ],
+  "staging.url": [
+    {
+      "file": "customers\\acme-corp\\staging.pfcfg",
+      "line": 5,
+      "section": "staging",
+      "key": "url"
+    }
+  ],
+  "deploy.target": [
+    {
+      "file": "customers\\acme-corp\\staging.pfcfg",
+      "line": 9,
+      "section": "deploy",
+      "key": "target"
+    },
+    {
+      "file": "customers\\acme-corp\\pipeline.pfcfg",
+      "line": 19,
+      "section": "deploy",
+      "key": "target"
+    }
+  ],
+  "customer.id": [
+    {
+      "file": "customers\\acme-corp\\pipeline.pfcfg",
+      "line": 7,
+      "section": "customer",
+      "key": "id"
+    }
+  ],
+  "customer.tier": [
+    {
+      "file": "customers\\acme-corp\\pipeline.pfcfg",
+      "line": 8,
+      "section": "customer",
+      "key": "tier"
+    }
+  ]
+}

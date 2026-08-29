@@ -1,0 +1,278 @@
+{
+  "toolchain.node.version": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 4,
+      "section": "toolchain.node",
+      "key": "version"
+    }
+  ],
+  "toolchain.node.binary": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 5,
+      "section": "toolchain.node",
+      "key": "binary"
+    }
+  ],
+  "toolchain.node.package_manager": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 6,
+      "section": "toolchain.node",
+      "key": "package_manager"
+    }
+  ],
+  "toolchain.node.install_cmd": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 7,
+      "section": "toolchain.node",
+      "key": "install_cmd"
+    }
+  ],
+  "toolchain.go.version": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 10,
+      "section": "toolchain.go",
+      "key": "version"
+    }
+  ],
+  "toolchain.go.module_mode": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 11,
+      "section": "toolchain.go",
+      "key": "module_mode"
+    }
+  ],
+  "toolchain.rust.version": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 14,
+      "section": "toolchain.rust",
+      "key": "version"
+    }
+  ],
+  "toolchain.rust.target": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 15,
+      "section": "toolchain.rust",
+      "key": "target"
+    }
+  ],
+  "toolchain.default.name": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 18,
+      "section": "toolchain.default",
+      "key": "name"
+    }
+  ],
+  "toolchain.default.compiler": [
+    {
+      "file": "_base\\toolchains.pfcfg",
+      "line": 19,
+      "section": "toolchain.default",
+      "key": "compiler"
+    }
+  ],
+  "notify.on_success": [
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 4,
+      "section": "notify",
+      "key": "on_success"
+    }
+  ],
+  "notify.on_failure": [
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 5,
+      "section": "notify",
+      "key": "on_failure"
+    }
+  ],
+  "notify.email.recipients": [
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 8,
+      "section": "notify.email",
+      "key": "recipients"
+    }
+  ],
+  "notify.email.from": [
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 9,
+      "section": "notify.email",
+      "key": "from"
+    }
+  ],
+  "notify.slack.enabled": [
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 13,
+      "section": "notify.slack",
+      "key": "enabled"
+    },
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 19,
+      "section": "notify.slack",
+      "key": "enabled"
+    }
+  ],
+  "notify.slack.channel": [
+    {
+      "file": "_base\\notifications.pfcfg",
+      "line": 14,
+      "section": "notify.slack",
+      "key": "channel"
+    }
+  ],
+  "meta.format_version": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 6,
+      "section": "meta",
+      "key": "format_version"
+    }
+  ],
+  "meta.platform": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 7,
+      "section": "meta",
+      "key": "platform"
+    }
+  ],
+  "build.timeout_minutes": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 10,
+      "section": "build",
+      "key": "timeout_minutes"
+    }
+  ],
+  "build.retry_count": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 11,
+      "section": "build",
+      "key": "retry_count"
+    }
+  ],
+  "build.image": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 12,
+      "section": "build",
+      "key": "image"
+    }
+  ],
+  "build.parallel": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 13,
+      "section": "build",
+      "key": "parallel"
+    }
+  ],
+  "cache.enabled": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 16,
+      "section": "cache",
+      "key": "enabled"
+    }
+  ],
+  "cache.key_prefix": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 17,
+      "section": "cache",
+      "key": "key_prefix"
+    }
+  ],
+  "artifacts.retention_days": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 20,
+      "section": "artifacts",
+      "key": "retention_days"
+    }
+  ],
+  "artifacts.compress": [
+    {
+      "file": "_base\\defaults.pfcfg",
+      "line": 21,
+      "section": "artifacts",
+      "key": "compress"
+    }
+  ],
+  "cascade.alpha": [
+    {
+      "file": "edge-cases\\interpolation-cascade.pfcfg",
+      "line": 6,
+      "section": "cascade",
+      "key": "alpha"
+    }
+  ],
+  "cascade.beta": [
+    {
+      "file": "edge-cases\\interpolation-cascade.pfcfg",
+      "line": 7,
+      "section": "cascade",
+      "key": "beta"
+    }
+  ],
+  "cascade.gamma": [
+    {
+      "file": "edge-cases\\interpolation-cascade.pfcfg",
+      "line": 8,
+      "section": "cascade",
+      "key": "gamma"
+    }
+  ],
+  "cascade.delta": [
+    {
+      "file": "edge-cases\\interpolation-cascade.pfcfg",
+      "line": 9,
+      "section": "cascade",
+      "key": "delta"
+    }
+  ],
+  "cascade.epsilon": [
+    {
+      "file": "edge-cases\\interpolation-cascade.pfcfg",
+      "line": 10,
+      "section": "cascade",
+      "key": "epsilon"
+    },
+    {
+      "file": "edge-cases\\interpolation-cascade.pfcfg",
+      "line": 14,
+      "section": "cascade",
+      "key": "epsilon"
+    }
+  ],
+  "cascade.loop.a": [
+    {
+      "file": "edge-cases\\interpolation-cascade.pfcfg",
+      "line": 19,
+      "section": "cascade.loop",
+      "key": "a"
+    }
+  ],
+  "cascade.loop.b": [
+    {
+      "file": "edge-cases\\interpolation-cascade.pfcfg",
+      "line": 20,
+      "section": "cascade.loop",
+      "key": "b"
+    }
+  ]
+}

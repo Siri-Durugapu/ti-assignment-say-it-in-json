@@ -1,0 +1,1210 @@
+{
+  "keys": {
+    "toolchain.node.version": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "NODE_VERSION",
+            "default": {
+              "type": "literal",
+              "text": "20"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "env",
+            "var": "NODE_VERSION",
+            "default": {
+              "type": "literal",
+              "text": "20"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "toolchain.node.binary": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "node"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "node"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "toolchain.node.package_manager": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "PKG_MGR",
+            "default": {
+              "type": "literal",
+              "text": "npm"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "env",
+            "var": "PKG_MGR",
+            "default": {
+              "type": "literal",
+              "text": "npm"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "toolchain.node.install_cmd": {
+      "layers": [
+        {
+          "value": {
+            "type": "concat",
+            "parts": [
+              {
+                "type": "env",
+                "var": "PKG_MGR",
+                "default": {
+                  "type": "literal",
+                  "text": "npm"
+                }
+              },
+              {
+                "type": "literal",
+                "text": " ci"
+              }
+            ]
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "concat",
+            "parts": [
+              {
+                "type": "env",
+                "var": "PKG_MGR",
+                "default": {
+                  "type": "literal",
+                  "text": "npm"
+                }
+              },
+              {
+                "type": "literal",
+                "text": " ci"
+              }
+            ]
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "toolchain.go.version": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "GO_VERSION",
+            "default": {
+              "type": "literal",
+              "text": "1.22"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "env",
+            "var": "GO_VERSION",
+            "default": {
+              "type": "literal",
+              "text": "1.22"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "toolchain.go.module_mode": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "on"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "on"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "toolchain.rust.version": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "RUST_VERSION",
+            "default": {
+              "type": "literal",
+              "text": "stable"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "env",
+            "var": "RUST_VERSION",
+            "default": {
+              "type": "literal",
+              "text": "stable"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "toolchain.rust.target": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "RUST_TARGET",
+            "default": {
+              "type": "literal",
+              "text": "x86_64-unknown-linux-gnu"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "env",
+            "var": "RUST_TARGET",
+            "default": {
+              "type": "literal",
+              "text": "x86_64-unknown-linux-gnu"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "toolchain.default.name": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "node"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "node"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "toolchain.default.compiler": {
+      "layers": [
+        {
+          "value": {
+            "type": "ref",
+            "path": "toolchain.node.binary"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "ref",
+            "path": "toolchain.node.binary"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "notify.on_success": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "NOTIFY_SUCCESS",
+            "default": {
+              "type": "literal",
+              "text": "log"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "env",
+            "var": "NOTIFY_SUCCESS",
+            "default": {
+              "type": "literal",
+              "text": "log"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "notify.on_failure": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "NOTIFY_FAILURE",
+            "default": {
+              "type": "literal",
+              "text": "email"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "env",
+            "var": "NOTIFY_FAILURE",
+            "default": {
+              "type": "literal",
+              "text": "email"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "notify.email.recipients": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "BUILD_NOTIFY_LIST",
+            "default": {
+              "type": "literal",
+              "text": "ops@example.invalid"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "env",
+            "var": "BUILD_NOTIFY_LIST",
+            "default": {
+              "type": "literal",
+              "text": "ops@example.invalid"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "notify.email.from": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "pipelineforge-noreply@example.invalid"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "pipelineforge-noreply@example.invalid"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "notify.slack.enabled": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "true"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            },
+            {
+              "type": "ifdef",
+              "var": "SLACK_WEBHOOK"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "false"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            },
+            {
+              "type": "ifndef",
+              "var": "SLACK_WEBHOOK"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "true"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            },
+            {
+              "type": "ifdef",
+              "var": "SLACK_WEBHOOK"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "false"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            },
+            {
+              "type": "ifndef",
+              "var": "SLACK_WEBHOOK"
+            }
+          ]
+        }
+      ]
+    },
+    "notify.slack.channel": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "SLACK_CHANNEL",
+            "default": {
+              "type": "literal",
+              "text": "#builds"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            },
+            {
+              "type": "ifdef",
+              "var": "SLACK_WEBHOOK"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "env",
+            "var": "SLACK_CHANNEL",
+            "default": {
+              "type": "literal",
+              "text": "#builds"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            },
+            {
+              "type": "ifdef",
+              "var": "SLACK_WEBHOOK"
+            }
+          ]
+        }
+      ]
+    },
+    "meta.format_version": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "3"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "3"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "meta.platform": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "pipelineforge"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "pipelineforge"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "build.timeout_minutes": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "45"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "45"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "build.retry_count": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "1"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "1"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "build.image": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "PF_BUILD_IMAGE",
+            "default": {
+              "type": "literal",
+              "text": "pfci/builder:22.04"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "env",
+            "var": "PF_BUILD_IMAGE",
+            "default": {
+              "type": "literal",
+              "text": "pfci/builder:22.04"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "build.parallel": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "false"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "false"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "cache.enabled": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "true"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "true"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "cache.key_prefix": {
+      "layers": [
+        {
+          "value": {
+            "type": "concat",
+            "parts": [
+              {
+                "type": "env",
+                "var": "CI",
+                "alt": {
+                  "type": "literal",
+                  "text": "ci-"
+                }
+              },
+              {
+                "type": "env",
+                "var": "CACHE_NAMESPACE",
+                "default": {
+                  "type": "literal",
+                  "text": "default"
+                }
+              }
+            ]
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "concat",
+            "parts": [
+              {
+                "type": "env",
+                "var": "CI",
+                "alt": {
+                  "type": "literal",
+                  "text": "ci-"
+                }
+              },
+              {
+                "type": "env",
+                "var": "CACHE_NAMESPACE",
+                "default": {
+                  "type": "literal",
+                  "text": "default"
+                }
+              }
+            ]
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "artifacts.retention_days": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "14"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "14"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "artifacts.compress": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "true"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "true"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "template.name": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "node-build"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "template.language": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "node"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "build.steps": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "install,lint,test,build"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "legacy-compile,legacy-test"
+          },
+          "condition": [
+            {
+              "type": "ifndef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "build.install_cmd": {
+      "layers": [
+        {
+          "value": {
+            "type": "ref",
+            "path": "toolchain.node.install_cmd"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "build.node_version": {
+      "layers": [
+        {
+          "value": {
+            "type": "ref",
+            "path": "toolchain.node.version"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "build.env.NODE_ENV": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "NODE_ENV",
+            "default": {
+              "type": "literal",
+              "text": "test"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "build.env.CI": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "CI",
+            "default": {
+              "type": "literal",
+              "text": "false"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "test.runner": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "TEST_RUNNER",
+            "default": {
+              "type": "literal",
+              "text": "jest"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "test.coverage_threshold": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "COVERAGE_MIN",
+            "default": {
+              "type": "literal",
+              "text": "80"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "lint.tool": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "eslint"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "lint.fail_on_warning": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "LINT_STRICT",
+            "default": {
+              "type": "literal",
+              "text": "false"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "feature.beta_enabled": {
+      "layers": [
+        {
+          "value": {
+            "type": "literal",
+            "text": "false"
+          }
+        },
+        {
+          "value": {
+            "type": "literal",
+            "text": "true"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "FEATURE_BETA"
+            }
+          ]
+        }
+      ]
+    },
+    "migration.api_endpoint": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "REQUIRED_API_ENDPOINT"
+          }
+        }
+      ]
+    },
+    "migration.fallback_endpoint": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "OPTIONAL_API_ENDPOINT",
+            "default": {
+              "type": "ref",
+              "path": "migration.api_endpoint"
+            }
+          }
+        }
+      ]
+    },
+    "audit.requested_by": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "MIGRATION_AUDIT_USER",
+            "default": {
+              "type": "literal",
+              "text": "unknown"
+            }
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "MIGRATION_AUDIT"
+            }
+          ]
+        }
+      ]
+    },
+    "audit.ticket": {
+      "layers": [
+        {
+          "value": {
+            "type": "env",
+            "var": "MIGRATION_AUDIT_TICKET"
+          },
+          "condition": [
+            {
+              "type": "ifdef",
+              "var": "MIGRATION_AUDIT"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
